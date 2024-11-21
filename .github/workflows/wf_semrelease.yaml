@@ -23,7 +23,6 @@ jobs:
     - name: Get latest tag
       run: |
         echo git describe --tags --abbrev=0 >> $LATEST_TAG
-        echo $LATEST_TAG
 
     #- name: Analyze commit message fix
       
