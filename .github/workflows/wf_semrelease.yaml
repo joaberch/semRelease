@@ -23,10 +23,12 @@ jobs:
     - name: Get latest tag
       run: |
         echo git describe --tags --abbrev=0 >> $LATEST_TAG
+        echo $LATEST_TAG
 
-    - name: Analyze commit message fix
-      if: ${{ contains(git log --format=%B -n 1, 'fix') }}
-      run: echo yes
+    #- name: Analyze commit message fix
+      
+    #  if: ${{ contains(git log --format=%B -n 1, 'fix') }}
+    #  run: echo yes
 
     #- name: Analyze commit message feat
     #  if: $GITHUB_ENV == "feat"
