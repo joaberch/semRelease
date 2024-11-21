@@ -13,14 +13,14 @@ jobs:
       with:
         token: $PAT_TOKEN
 
-    - name: Setup Git
+    #- name: Setup Git
 
-    - name: Get latest tag
+    #- name: Get latest tag
 
-    - name: Analyze commit message
+    #- name: Analyze commit message
 
-    - name: Determine new version
+    #- name: Determine new version
 
-    - name: Create new tag
+    #- name: Create new tag
 
-    - name: Show new version
+    #- name: Show new version
