@@ -4,7 +4,7 @@ on:
       - "main"
 
 env:
-  GITHUB_ENV:
+  LATEST_TAG:
 
 jobs:
   build:
@@ -22,9 +22,17 @@ jobs:
 
     - name: Get latest tag
       run: |
-        echo git describe --tags --abbrev=0 >> $GITHUB_ENV
+        echo git describe --tags --abbrev=0 >> $LATEST_TAG
 
-    #- name: Analyze commit message
+    - name: Analyze commit message fix
+      if: ${{ contains(git log --format=%B -n 1, 'fix') }}
+      run: echo yes
+
+    #- name: Analyze commit message feat
+    #  if: $GITHUB_ENV == "feat"
+
+    #- name: Analyze commit message breakingChange
+    #  if: $GITHUB_ENV == "breakingChange"
 
     #- name: Determine new version
 
