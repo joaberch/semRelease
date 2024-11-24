@@ -65,6 +65,8 @@ jobs:
 
         NEW_VERSION="v$MAJOR.$MINOR.$PATCH"
         echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+        echo $NEW_VERSION
+        echo $VERSION_CLEANED
       
     #  if: ${{ contains(git log --format=%B -n 1, 'fix') }}
     #  run: echo yes
