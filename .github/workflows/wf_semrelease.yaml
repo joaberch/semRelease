@@ -34,13 +34,13 @@ jobs:
       
     - name: Analyze commit message
       run: |
-        if [[ "$COMMIT_MSG" == *"fix"* ]]; then
+        if [[ "$COMMIT_MSG" == "fix"* ]]; then
           CHANGE_TYPE="patch"
           echo "CHANGE_TYPE=$CHANGE_TYPE" >> $GITHUB_ENV
-        elif [[ "$COMMIT_MSG" == *"feat"* ]]; then
+        elif [[ "$COMMIT_MSG" == "feat"* ]]; then
           CHANGE_TYPE="minor"
           echo "CHANGE_TYPE=$CHANGE_TYPE" >> $GITHUB_ENV
-        elif [[ "$COMMIT_MSG" == *"breakingChange"* ]]; then
+        elif [[ "$COMMIT_MSG" == "breakingChange"* ]]; then
           CHANGE_TYPE="major"
           echo "CHANGE_TYPE=$CHANGE_TYPE" >> $GITHUB_ENV
         fi
