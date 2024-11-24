@@ -67,6 +67,13 @@ jobs:
         echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
         echo $NEW_VERSION
         echo $VERSION_CLEANED
+    
+    - name: Create new tag
+      if: env.NEW_VERSION != ''
+      run: |
+        git tag $NEW_VERSION
+        git push origin $NEW_VERSION
+      
       
     #  if: ${{ contains(git log --format=%B -n 1, 'fix') }}
     #  run: echo yes
