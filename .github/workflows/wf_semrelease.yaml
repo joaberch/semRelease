@@ -31,6 +31,17 @@ jobs:
         echo "test"
         echo $COMMIT_MSG
       
+    - name: Analyze commit message
+      run: |
+        if [[ "$COMMIT_MSG" == *"fix"* ]]; then
+          echo "CHANGE_TYPE=patch" >> $GITHUB_ENV
+        elif [[ "$COMMIT_MSG" == *"feat"* ]]; then
+          echo "CHANGE_TYPE=minor" >> $GITHUB_ENV
+        elif [[ "$COMMIT_MSG" == *"breakingChange"* ]]; then
+          echo "CHANGE_TYPE=major" >> $GITHUB_ENV
+        fi
+        echo $CHANGE_TYPE
+      
     #  if: ${{ contains(git log --format=%B -n 1, 'fix') }}
     #  run: echo yes
 
