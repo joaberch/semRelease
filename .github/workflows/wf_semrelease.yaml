@@ -12,10 +12,10 @@ jobs:
       with:
         token: ${{secrets.PAT_TOKEN}}
 
-    - name: Setup Git
-      run: |
-        git config --global user.name ${{vars.username}}
-        git config --global user.email ${{vars.email}}
+    #- name: Setup Git
+    #  run: |
+    #    git config --global user.name ${{vars.username}}
+    #    git config --global user.email ${{vars.email}}
 
     - name: Get latest tag
       run: |
